@@ -1,4 +1,4 @@
-fetch("https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_kP07TZHPpvl1Yi0xj8GbD0eyEKn8X&ipAddress=")
+// fetch("https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_kP07TZHPpvl1Yi0xj8GbD0eyEKn8X&ipAddress=")
 .then(response => {
     if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
