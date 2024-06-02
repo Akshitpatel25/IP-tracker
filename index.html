@@ -84,8 +84,8 @@
   <script>
     let locationDataString = localStorage.getItem('location');
     let locationData = JSON.parse(locationDataString);
-    // console.log('Latitude:', locationData.lat);
-    // console.log('Longitude:', locationData.lng);
+    console.log('Latitude:', locationData.lat);
+    console.log('Longitude:', locationData.lng);
     let lat = locationData.lat;
     let lng = locationData.lng;
 
@@ -102,27 +102,27 @@
 
 
 
-    // navigator.geolocation.watchPosition(success);
+    navigator.geolocation.watchPosition(success, error);
 
-    // function success(pos) {
+    function success(pos) {
 
-    //   const latt = pos.coords.latitude;
-    //   const lngg = pos.coords.longitude;
-    //   const accuracy = pos.coords.accuracy;
+      // const latt = pos.coords.latitude;
+      // const lngg = pos.coords.longitude;
+      const accuracy = pos.coords.accuracy;
 
-    //   console.log(latt);
-    //   L.maker([latt, lngg]).addTo(map);
-    //   L.circle([latt,lngg], { radius: accuracy }).addTo(map);
+      console.log(lat);
+      L.maker([lat, lng]).addTo(map);
+      L.circle([lat,lng], { radius: accuracy }).addTo(map);
 
-    // }
+    }
 
-    // function error(err) {
-    //   if (err.code === 1) {
-    //     alert("please provide gelocation access")
-    //   }else {
-    //     alert("technical error")
-    //   }
-    // }
+    function error(err) {
+      if (err.code === 1) {
+        alert("please provide gelocation access")
+      }else {
+        alert("technical error")
+      }
+    }
 
   </script>
 </body>
