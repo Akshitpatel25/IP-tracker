@@ -109,8 +109,8 @@
       let lng = locationData.lng;
 
 
-      // L.marker([lat, lng]).addTo(map);  // Corrected function name
-      L.circle([lat, lng], { radius: accuracy }).addTo(map);
+      L.marker([lat, lng]).addTo(map);  // Corrected function name
+      // L.circle([lat, lng], { radius: accuracy }).addTo(map);
     }
 
     function error(err) {
