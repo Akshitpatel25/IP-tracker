@@ -1,5 +1,5 @@
 fetch(
-  "https://geo.ipify.org/api/v2/country,city?apiKey=at_lF7JrQw14fP3lWUMrdUyE63NQWR06&ipAddress="
+  "https://geo.ipify.org/api/v2/country,city?apiKey=at_5tSoTQhPv637MxxLgHwELIf5dt2tA&ipAddress="
 )
   .then((response) => {
     if (!response.ok) {
@@ -51,7 +51,7 @@ function checkIPAddress(ip) {
     document.querySelector("#ip_input").style.borderColor = "white";
 
     let ipaddress =
-      "https://geo.ipify.org/api/v2/country,city?apiKey=at_lF7JrQw14fP3lWUMrdUyE63NQWR06&ipAddress=";
+      "https://geo.ipify.org/api/v2/country,city?apiKey=at_5tSoTQhPv637MxxLgHwELIf5dt2tA&ipAddress=";
 
     ipaddress += ip;
 
