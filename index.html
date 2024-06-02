@@ -115,6 +115,11 @@
       let lat = locationData.lat;
       let lng = locationData.lng;
 
+      if (marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+      }
+
       maker = L.marker([lat, lng]).addTo(map);
       circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
