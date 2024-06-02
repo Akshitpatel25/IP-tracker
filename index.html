@@ -97,13 +97,15 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    // L.maker([lat, lng]).addTo(map);
-    // L.circle([lat, lng], { radius: accuracy }).addTo(map);
+    L.maker([lat, lng]).addTo(map);
+    L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
 
 
     navigator.geolocation.watchPosition(success, error);
 
+    let market;
+    let circle;
     function success(pos) {
       // console.log(pos);
       const accuracy = pos.coords.accuracy;
@@ -113,9 +115,13 @@
       let lat = locationData.lat;
       let lng = locationData.lng;
 
+      if (marker) {
+        map.removeLayer(marker);
+        map.removeLayer(circle);
+      }
 
-      let maker = L.marker([lat, lng]).addTo(map);
-      let circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+      maker = L.marker([lat, lng]).addTo(map);
+      circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
       map.setView([lat, lng], 13)
       map.fitBounds(circle.getBounds())
