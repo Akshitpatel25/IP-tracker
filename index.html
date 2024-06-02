@@ -82,13 +82,6 @@
   <!--  -->
   <script src="script.js"></script>
   <script>
-    // let locationDataString = localStorage.getItem('location');
-    // let locationData = JSON.parse(locationDataString);
-    // console.log('Latitude:', locationData.lat);
-    // console.log('Longitude:', locationData.lng);
-    // let lat = locationData.lat;
-    // let lng = locationData.lng;
-
 
     let map = L.map('map').setView([51.55, -0.09], 13);
 
@@ -106,14 +99,17 @@
 
     function success(pos) {
       console.log(pos);
-      const lat = pos.coords.latitude;  // Corrected variable name
-      const lng = pos.coords.longitude;  // Corrected variable name
+      // const lat = pos.coords.latitude;  // Corrected variable name
+      // const lng = pos.coords.longitude;  // Corrected variable name
       const accuracy = pos.coords.accuracy;
 
+      let locationDataString = localStorage.getItem('location');
+      let locationData = JSON.parse(locationDataString);
+      let lat = locationData.lat;
+      let lng = locationData.lng;
 
 
-      console.log(typeof(lat));
-      L.marker([lat, lng]).addTo(map);  // Corrected function name
+      // L.marker([lat, lng]).addTo(map);  // Corrected function name
       L.circle([lat, lng], { radius: accuracy }).addTo(map);
     }
 
