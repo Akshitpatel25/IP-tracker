@@ -50,7 +50,8 @@ function checkIPAddress(ip) {
     console.log("Valid IPv4 address");
     document.querySelector("#ip_input").style.borderColor = "white";
 
-    let ipaddress = "https://geo.ipify.org/api/v2/country,city?apiKey=at_lF7JrQw14fP3lWUMrdUyE63NQWR06&ipAddress=";
+    let ipaddress =
+      "https://geo.ipify.org/api/v2/country,city?apiKey=at_lF7JrQw14fP3lWUMrdUyE63NQWR06&ipAddress=";
 
     ipaddress += ip;
 
@@ -63,7 +64,16 @@ function checkIPAddress(ip) {
       })
       .then((data) => {
         // console.log(data);
-        
+        let lat = data.location["lat"];
+        let lng = data.location["lng"];
+
+        // Create an object to store both lat and lng
+        let locationData = {
+          lat: lat,
+          lng: lng,
+        };
+        // Convert the object to a JSON string and store it in local storage
+        localStorage.setItem("location", JSON.stringify(locationData));
 
         document.querySelector(".ip_output_part").innerHTML = data.ip;
         document.querySelector(

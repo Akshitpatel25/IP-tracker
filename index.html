@@ -88,15 +88,6 @@
     let setview_lat = locationData.lat;
     let setview_lng = locationData.lng;
 
-    let newlocationDataString = localStorage.getItem('newlocation');
-    let newlocationData = JSON.parse(newlocationDataString);
-
-    if (newlocationData) {
-      setview_lat = newlocationData.lat;
-      setview_lng = newlocationData.lng;
-    }
-
-
 
     let map = L.map('map')
     map.setView([setview_lat, setview_lng], 13);
