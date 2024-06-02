@@ -7,6 +7,18 @@ fetch("https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_kP07TZHPpvl1Yi0xj
 })
 .then(data => {
     // console.log(data);
+    let lat = data.location["lat"];
+    let lng = data.location["lng"];
+    
+    // Create an object to store both lat and lng
+    let locationData = {
+        lat: lat,
+        lng: lng
+    };
+    // Convert the object to a JSON string and store it in local storage
+    localStorage.setItem('location', JSON.stringify(locationData));
+    
+
     document.querySelector(".ip_output_part").innerHTML = data.ip;
     document.querySelector(".location_output_part").innerHTML = `${data.location["country"]}, ${data.location["city"]} <br/> ${data.location["postalCode"]}`;
     document.querySelector(".timezone_output_part").innerHTML = `${data.location["timezone"]}`;
@@ -34,7 +46,7 @@ function checkIPAddress(ip) {
         console.log("Valid IPv4 address");
         document.querySelector("#ip_input").style.borderColor = "white";
 
-        let ipaddress = "https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_kP07TZHPpvl1Yi0xj8GbD0eyEKn8X&ipAddress=";
+        // let ipaddress = "https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_kP07TZHPpvl1Yi0xj8GbD0eyEKn8X&ipAddress=";
 
         ipaddress += ip;
 
@@ -47,6 +59,7 @@ function checkIPAddress(ip) {
         })
         .then(data => {
             // console.log(data);
+            
             document.querySelector(".ip_output_part").innerHTML = data.ip;
             document.querySelector(".location_output_part").innerHTML = `${data.location["country"]}, ${data.location["city"]} <br/> ${data.location["postalCode"]}`;
             document.querySelector(".timezone_output_part").innerHTML = `${data.location["timezone"]}`;
@@ -61,5 +74,3 @@ function checkIPAddress(ip) {
         document.querySelector("#ip_input").style.borderColor = "red";
     }
 }
-
-
