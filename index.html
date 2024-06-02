@@ -83,15 +83,15 @@
   <!--  -->
   <script src="script.js"></script>
   <script>
-    let locationDataString = localStorage.getItem('location');
-    let locationData = JSON.parse(locationDataString);
-    console.log('Latitude:', locationData.lat);
-    console.log('Longitude:', locationData.lng);
-    let lat = locationData.lat;
-    let lng = locationData.lng;
+    // let locationDataString = localStorage.getItem('location');
+    // let locationData = JSON.parse(locationDataString);
+    // console.log('Latitude:', locationData.lat);
+    // console.log('Longitude:', locationData.lng);
+    // let lat = locationData.lat;
+    // let lng = locationData.lng;
 
 
-    let map = L.map('map').setView([lat, lng], 13);
+    let map = L.map('map').setView([51.55, -0.09], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
