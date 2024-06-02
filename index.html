@@ -90,7 +90,7 @@
 
 
     let map = L.map('map')
-    map.setView([51.55, -0.09], 13);
+    map.setView([setview_lat, setview_lng], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -117,7 +117,7 @@
       let maker = L.marker([lat, lng]).addTo(map);
       let circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
-      // map.setView([lat, lng], 13)
+      map.setView([lat, lng], 13)
       map.fitBounds(circle.getBounds())
       
     }
