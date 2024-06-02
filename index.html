@@ -98,32 +98,28 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    L.maker([lat, lng]).addTo(map);
-    L.circle([lat, lng], { radius: accuracy }).addTo(map);
+    // L.maker([lat, lng]).addTo(map);
+    // L.circle([lat, lng], { radius: accuracy }).addTo(map);
 
 
 
     navigator.geolocation.watchPosition(success, error);
 
     function success(pos) {
-
-      // const latt = pos.coords.latitude;
-      // const lngg = pos.coords.longitude;
+      console.log(pos);
+      const lat = pos.coords.latitude;  // Corrected variable name
+      const lng = pos.coords.longitude;  // Corrected variable name
       const accuracy = pos.coords.accuracy;
 
-      console.log(lat);
-      L.maker([lat, lng]).addTo(map);
+      console.log(lat, lng);
+      L.marker([lat, lng]).addTo(map);  // Corrected function name
       L.circle([lat, lng], { radius: accuracy }).addTo(map);
-
     }
 
     function error(err) {
-      if (err.code === 1) {
-        alert("please provide gelocation access")
-      } else {
-        alert("technical error")
-      }
+      console.warn(`ERROR(${err.code}): ${err.message}`);
     }
+
 
   </script>
 </body>
